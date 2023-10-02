@@ -2,11 +2,15 @@ import {useDataContext} from "../providers/DataProvider"
 
 export const List = () => {
     const [tasks, dispatchData] = useDataContext();
+    console.log(tasks);
     return(
         <ol>
-            {tasks.map((item, index) => (
-                <li key={index}>{item.name} {item.finished ? "DONE" : "PROGRESS"}</li>
-            ))}
+            {tasks ? tasks.map((item, index) => (
+                <li key={index}>
+                    {item.name} {item.finished ? "DONE" : "PROGRESS"}
+                    <button>Remove</button>
+                </li>
+            )) : <p>Žádné</p>}
         </ol>
     );
 }
