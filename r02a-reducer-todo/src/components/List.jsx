@@ -1,4 +1,4 @@
-import {useDataContext} from "../providers/DataProvider"
+import {useDataContext, REMOVE_TASK} from "../providers/DataProvider"
 
 export const List = () => {
     const [tasks, dispatchData] = useDataContext();
@@ -8,7 +8,7 @@ export const List = () => {
             {tasks ? tasks.map((item, index) => (
                 <li key={index}>
                     {item.name} {item.finished ? "DONE" : "PROGRESS"}
-                    <button>Remove</button>
+                    <button onClick={e => {dispatchData({type: REMOVE_TASK, payload: index})}}>Remove</button>
                 </li>
             )) : <p>Žádné</p>}
         </ol>

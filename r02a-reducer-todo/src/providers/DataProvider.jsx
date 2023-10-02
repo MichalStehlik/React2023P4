@@ -15,6 +15,10 @@ const reducer = (state, action) => {
             newState.push(action.payload);
             return newState
         }
+        case REMOVE_TASK: {
+            newState.splice(action.payload,1);
+            return newState
+        }
         default: {
             return state;
         }
