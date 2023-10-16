@@ -1,5 +1,7 @@
+import withAuth from "../hoc/withAuth"
+
 export const ProtectedPanel = () => {
     return <p>Secret</p>
 }
 
-export default ProtectedPanel;
+export default withAuth(ProtectedPanel);
